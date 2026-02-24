@@ -27,3 +27,9 @@ def main(page:ft.Page):
     "compartmentalization",
     "hypercholesterolemia"
 ]
+    
+    random.shuffle(words)
+    total_words = 15
+    index = 0
+    mistakes = 0
+    correct = 0
