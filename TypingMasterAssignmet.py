@@ -33,3 +33,26 @@ def main(page:ft.Page):
     index = 0
     mistakes = 0
     correct = 0
+
+    word_label = ft.Text(words[index], size=24)
+    status_label = ft.Text("")
+    progress_label = ft.Text(f"0 / {total_words}")
+    accuracy_label = ft.Text("Accuracy: 0%")
+
+    input_field = ft.TextField(label="Type the word")
+
+    def check_word(e):
+        nonlocal index, mistakes, correct
+        
+        user_word = input_field.value
+
+        if user_word == words[index]:
+            status_label.value = "Correct!"
+            status_label.color = ft.colors.GREEN
+            correct += 1
+        else:
+            status_label.value = "Incorrect!"
+            status_label.color = ft.colors.RED
+            mistakes += 1
+
+        index += 1
