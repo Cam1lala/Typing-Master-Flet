@@ -71,3 +71,22 @@ def main(page:ft.Page):
             input_field.disabled = True
 
         page.update()
+
+    submit_button = ft.ElevatedButton("Submit", on_click=check_word)
+
+    page.add(
+        ft.Column(
+            [
+                progress_label,
+                word_label,
+                input_field,
+                submit_button,
+                status_label,
+                accuracy_label,
+            ],
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+
+        )
+    )
+
+ft.app(target=main)
