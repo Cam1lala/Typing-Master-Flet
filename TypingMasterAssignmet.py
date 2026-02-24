@@ -56,3 +56,18 @@ def main(page:ft.Page):
             mistakes += 1
 
         index += 1
+
+        if index < total_words:
+            word_label.value = words[index]
+            progress_label.value = f"{index} / {total_words}"
+            accuracy = (correct / index) * 100
+            accuracy_label.value = f"Accuracy: {accuracy:.2f}%"
+            input_field.value = ""
+        else:
+            accuracy = (correct / total_words) * 100
+            word_label.value = "Game Over!"
+            progress_label.value = f"{total_words} / {total_words}"
+            accuracy_label.value = f"Final Accuracy: {accuracy:.2f}%"
+            input_field.disabled = True
+
+        page.update()
